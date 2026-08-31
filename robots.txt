@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rakusitekaikei.github.io/rakushite/sitemap.xml
