@@ -165,7 +165,7 @@ footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:fle
   <div class="calc-wrap">
     <div class="card">
       <div class="field">
-        <label for="revenue">年間の売上（収入）</label>
+        <label for="revenue">年間の事業の売上（収入）</label>
         <input type="number" id="revenue" inputmode="numeric" placeholder="例：4000000" value="4000000">
         <div class="hint">1年間の売上合計を円で入力してください。</div>
       </div>
@@ -173,6 +173,11 @@ footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:fle
         <label for="expense">年間の必要経費</label>
         <input type="number" id="expense" inputmode="numeric" placeholder="例：800000" value="800000">
         <div class="hint">仕入・通信費・家賃按分など、事業のための支出の合計です。</div>
+      </div>
+      <div class="field">
+        <label for="salary">給与収入（年間・あれば）</label>
+        <input type="number" id="salary" inputmode="numeric" placeholder="例：0" value="0">
+        <div class="hint">パート・アルバイトなど、事業以外にお勤め先からの給与がある場合の年間額（額面）です。ない場合は0のままでOK。勤務先で社会保険（健康保険・厚生年金）に加入している場合、国民年金・国民健康保険は別途かからないことがあります。</div>
       </div>
       <div class="field-row">
         <div class="field">
@@ -189,6 +194,11 @@ footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:fle
           <input type="number" id="dependents" inputmode="numeric" min="0" value="0">
           <div class="hint">配偶者・お子さまなど（簡易計算：1人につき38万円控除）。</div>
         </div>
+      </div>
+      <div class="field">
+        <label for="otherDeductions">その他の控除の合計額（目安）</label>
+        <input type="number" id="otherDeductions" inputmode="numeric" placeholder="例：100000" value="0">
+        <div class="hint">生命保険料控除・地震保険料控除・医療費控除・iDeCo（小規模企業共済等掛金控除）など、上記以外の控除がある場合はおおよその合計額を入力してください。分からない場合は0のままでOKです。</div>
       </div>
       <label class="chk"><input type="checkbox" id="age4064"><span>40歳以上65歳未満（国民健康保険に介護分が加わります）</span></label>
       <label class="chk"><input type="checkbox" id="biztax"><span>個人事業税の対象業種にあたる（判定が難しい場合はチェックを外したままでOK。記帳代行業・ソフトウェア開発業は業種の実態により判定が分かれます）</span></label>
@@ -222,6 +232,8 @@ footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:fle
       <div class="card" style="margin-top:16px">
         <ul class="result-list">
           <li class="label"><span>事業所得（売上−経費−青色控除）<small>各種控除を差し引く前の金額</small></span><b id="rIncome">¥0</b></li>
+          <li class="label"><span>給与所得<small>給与収入−給与所得控除</small></span><b id="rSalaryIncome">¥0</b></li>
+          <li class="label"><span>合計所得金額<small>事業所得＋給与所得</small></span><b id="rTotalIncome">¥0</b></li>
           <li class="label"><span>所得税<small>復興特別所得税を含む</small></span><b id="rIncomeTax">¥0</b></li>
           <li class="label"><span>住民税<small>所得割＋均等割の概算</small></span><b id="rResidentTax">¥0</b></li>
           <li class="label"><span>国民健康保険料<small>概算・上限あり</small></span><b id="rKokuho">¥0</b></li>
@@ -243,6 +255,8 @@ footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:fle
     <div class="explain"><b>国民年金保険料</b><p>会社員の厚生年金にあたるもの。原則として全員一律の月額（令和8年度は月17,920円）です。</p></div>
     <div class="explain"><b>個人事業税</b><p>都道府県に納める税金で、法律で定められた業種のみが対象です。事業所得290万円を超えた部分に、業種ごとに定められた税率（多くは5%）がかかります。</p></div>
     <div class="explain"><b>青色申告特別控除</b><p>複式簿記での記帳や電子申告などの要件を満たすと、最大65万円を所得から差し引ける制度です。記帳の正確さが節税にも直結します。</p></div>
+    <div class="explain"><b>給与所得・給与所得控除</b><p>事業以外にお勤め先からの給与がある場合、給与収入から「給与所得控除」を差し引いた金額が給与所得です。事業所得と合算して税額を計算します。</p></div>
+    <div class="explain"><b>その他の控除（目安）</b><p>生命保険料控除・地震保険料控除・医療費控除・iDeCoなど、人によって内容が異なる控除は合計額をご自身で入力する欄を設けています。分からない場合は0円で構いません。</p></div>
   </div>
 </div></section>
 
@@ -266,6 +280,14 @@ function closeMenu(){document.getElementById('drawer').classList.remove('open');
 function yen(n){ n = Math.round(n); return '¥' + n.toLocaleString('ja-JP'); }
 function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
 
+function salaryDeduction(salary){
+  if(salary<=0) return 0;
+  if(salary<=1900000) return Math.min(salary,650000);
+  if(salary<=3600000) return salary*0.3+80000;
+  if(salary<=6600000) return salary*0.2+440000;
+  if(salary<=8500000) return salary*0.1+1100000;
+  return 1950000;
+}
 function basicDeductionIncomeTax(income){
   if(income<=1320000) return 950000;
   if(income<=3360000) return 880000;
@@ -298,17 +320,21 @@ function floorTo1000(x){ return Math.floor(Math.max(0,x)/1000)*1000; }
 function calc(){
   var revenue = num('revenue');
   var expense = num('expense');
+  var salary = num('salary');
   var blue = num('blue');
   var dependents = num('dependents');
+  var otherDeductions = num('otherDeductions');
   var age4064 = document.getElementById('age4064').checked;
   var bizApplicable = document.getElementById('biztax').checked;
   var kokuhoRate = num('kokuhoRate')/100;
   var kokuhoFlat = num('kokuhoFlat');
 
-  var income = Math.max(0, revenue - expense - blue); // 事業所得（合計所得金額）
+  var bizIncome = Math.max(0, revenue - expense - blue); // 事業所得
+  var salaryIncome = Math.max(0, salary - salaryDeduction(salary)); // 給与所得
+  var totalIncome = bizIncome + salaryIncome; // 合計所得金額
   var pensionAnnual = 17920*12;
 
-  var kokuhoBase = Math.max(0, income - 430000);
+  var kokuhoBase = Math.max(0, totalIncome - 430000);
   var kokuhoBeforeCap = kokuhoBase*kokuhoRate + (age4064 ? kokuhoBase*0.02 : 0) + kokuhoFlat;
   var kokuhoCap = age4064 ? 1060000 : 890000;
   var kokuho = Math.min(kokuhoBeforeCap, kokuhoCap);
@@ -317,8 +343,8 @@ function calc(){
   var dependentIncomeTax = dependents*380000;
   var dependentResidentTax = dependents*330000;
 
-  var taxableIncome = floorTo1000(income - basicDeductionIncomeTax(income) - dependentIncomeTax - socialDeduction);
-  var taxableResident = floorTo1000(income - basicDeductionResidentTax(income) - dependentResidentTax - socialDeduction);
+  var taxableIncome = floorTo1000(totalIncome - basicDeductionIncomeTax(totalIncome) - dependentIncomeTax - socialDeduction - otherDeductions);
+  var taxableResident = floorTo1000(totalIncome - basicDeductionResidentTax(totalIncome) - dependentResidentTax - socialDeduction - otherDeductions);
 
   var incomeTax = Math.max(0, incomeTaxBracket(taxableIncome));
   var reconstructionTax = incomeTax*0.021;
@@ -333,11 +359,13 @@ function calc(){
   }
 
   var total = incomeTaxTotal + residentTax + kokuho + pensionAnnual + bizTax;
-  var takehome = revenue - expense - total;
+  var takehome = revenue - expense + salary - total;
 
   document.getElementById('rTotal').textContent = yen(total);
   document.getElementById('rTakehome').textContent = yen(takehome);
-  document.getElementById('rIncome').textContent = yen(income);
+  document.getElementById('rIncome').textContent = yen(bizIncome);
+  document.getElementById('rSalaryIncome').textContent = yen(salaryIncome);
+  document.getElementById('rTotalIncome').textContent = yen(totalIncome);
   document.getElementById('rIncomeTax').textContent = yen(incomeTaxTotal);
   document.getElementById('rResidentTax').textContent = yen(residentTax);
   document.getElementById('rKokuho').textContent = yen(kokuho);
