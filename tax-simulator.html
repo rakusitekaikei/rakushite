@@ -1,0 +1,349 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>税金・社会保険料 かんたん試算｜個人事業主向け｜ラクシテ</title>
+<meta name="description" content="売上と経費を入力するだけで、個人事業主・フリーランスの所得税・住民税・国民健康保険・国民年金・個人事業税の目安を無料で試算できます。ラクシテの記帳代行サービスによる無料ツールです。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#2e6541">
+<link rel="canonical" href="https://rakusitekaikei.github.io/rakushite/tax-simulator.html">
+<link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="images/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ラクシテ">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="税金・社会保険料 かんたん試算｜個人事業主向け｜ラクシテ">
+<meta property="og:description" content="売上と経費を入力するだけで、所得税・住民税・国民健康保険・国民年金・個人事業税の目安が分かる無料ツールです。">
+<meta property="og:url" content="https://rakusitekaikei.github.io/rakushite/tax-simulator.html">
+<meta property="og:image" content="https://rakusitekaikei.github.io/rakushite/images/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="税金・社会保険料 かんたん試算｜ラクシテ">
+<meta name="twitter:description" content="個人事業主・フリーランス向け、税金と社会保険料の無料かんたん試算ツール。">
+<meta name="twitter:image" content="https://rakusitekaikei.github.io/rakushite/images/ogp.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "税金・社会保険料 かんたん試算ツール",
+  "url": "https://rakusitekaikei.github.io/rakushite/tax-simulator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "isAccessibleForFree": true,
+  "description": "個人事業主・フリーランス向けに、所得税・住民税・国民健康保険・国民年金・個人事業税の概算を試算できる無料ツール。",
+  "provider": { "@type": "ProfessionalService", "name": "ラクシテ", "url": "https://rakusitekaikei.github.io/rakushite/", "telephone": "+81-80-6382-6844", "email": "rakushite7@gmail.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://rakusitekaikei.github.io/rakushite/" },
+    { "@type": "ListItem", "position": 2, "name": "税金・社会保険料 かんたん試算", "item": "https://rakusitekaikei.github.io/rakushite/tax-simulator.html" }
+  ]
+}
+</script>
+<style>
+:root{
+  --g:#4f8b61; --gd:#2e6541; --gdd:#18472e;
+  --gp:#eef6ee; --cream:#fbfaf4; --text:#26372c; --muted:#68746d;
+  --line:#dfe7de; --white:#fff; --shadow:0 18px 50px rgba(43,79,52,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;color:var(--text);background:#fff;line-height:1.75}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(46,101,65,.08)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand img{width:118px;height:60px;object-fit:contain}
+.hamb{width:48px;height:48px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:12px}
+.hamb:hover{background:var(--gp)}
+.hamb-lines,.hamb-lines:before,.hamb-lines:after{content:"";display:block;width:30px;height:4px;background:#747474;border-radius:4px;position:relative}
+.hamb-lines:before{position:absolute;top:-10px}
+.hamb-lines:after{position:absolute;top:10px}
+.drawer{position:fixed;inset:0;z-index:100;pointer-events:none}
+.drawer .shade{position:absolute;inset:0;background:rgba(20,35,26,.35);opacity:0;transition:.25s}
+.drawer .panel{position:absolute;right:0;top:0;height:100%;width:min(390px,88vw);background:white;transform:translateX(100%);transition:.3s;padding:26px;box-shadow:-18px 0 55px rgba(27,55,35,.16);overflow-y:auto}
+.drawer.open{pointer-events:auto}.drawer.open .shade{opacity:1}.drawer.open .panel{transform:none}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.drawer-top img{width:122px;height:auto}
+.close{font-size:32px;border:0;background:none;cursor:pointer;color:#666}
+.menu-label{font-size:11px;letter-spacing:.14em;color:var(--g);font-weight:800;margin:20px 0 8px}
+.menu-link{display:flex;justify-content:space-between;align-items:center;padding:17px 4px;border-bottom:1px solid var(--line);font-weight:800;font-size:17px}
+.menu-link small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:999px;font-weight:800;transition:.2s;border:1px solid transparent;cursor:pointer;font-size:16px;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--g);color:white;box-shadow:0 10px 24px rgba(79,139,97,.22)}
+.btn-outline{border-color:var(--g);color:var(--gd);background:#fff}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--g)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff,#f7faf5);padding:72px 0 56px}
+h1,h2,h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.3;margin:12px 0 18px;font-weight:600}
+h1 span{color:var(--gd)}
+.hero p{font-size:16px;color:#526258;max-width:700px}
+.badge-note{display:inline-flex;align-items:center;gap:8px;background:#fff7e6;border:1px solid #f0ddb0;color:#8a6a1f;font-size:13px;font-weight:700;padding:10px 16px;border-radius:14px;margin-top:18px}
+.section{padding:56px 0}
+.soft{background:linear-gradient(180deg,#fbfcf8,#f6f7ef)}
+.section-head{max-width:760px;margin:0 auto 30px}
+.section-head h2{font-size:clamp(26px,4vw,36px);color:var(--gdd);margin:8px 0 10px}
+.section-head p{color:var(--muted);margin:0}
+.calc-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:800;color:var(--gdd);margin-bottom:6px}
+.field .hint{font-size:12px;color:var(--muted);margin-top:5px}
+.field input[type=number],.field select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;color:var(--text);background:#fbfcfa}
+.field input[type=number]:focus,.field select:focus{outline:2px solid var(--g);outline-offset:1px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chk{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);padding:10px 0}
+.chk input{margin-top:4px;width:18px;height:18px;flex:none}
+details.adv{margin:22px 0 8px;border:1px dashed var(--line);border-radius:16px;padding:4px 18px}
+details.adv summary{cursor:pointer;font-weight:800;color:var(--gd);padding:14px 0;font-size:14px}
+details.adv[open] summary{margin-bottom:4px}
+.result-sticky{position:sticky;top:96px}
+.result-total{background:linear-gradient(135deg,#1f3c2b,#2e6541);color:#fff;border-radius:24px;padding:28px;box-shadow:0 18px 40px rgba(24,71,46,.28)}
+.result-total .eyebrow{color:#c9e6cf}
+.result-total .num{font-size:clamp(30px,4vw,40px);font-weight:900;margin:8px 0 2px}
+.result-total .sub{font-size:13px;opacity:.85}
+.takehome{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
+.takehome .num{font-size:26px;font-weight:900;color:#eafff0}
+.result-list{list-style:none;margin:18px 0 0;padding:0}
+.result-list li{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.result-list li:last-child{border-bottom:none}
+.result-list b{color:var(--gdd);font-weight:900}
+.result-list .label small{display:block;color:var(--muted);font-size:11.5px;font-weight:500;margin-top:2px}
+.note-box{background:#fff7e6;border:1px solid #f0ddb0;border-radius:16px;padding:18px 20px;font-size:13px;color:#6d5419;margin-top:18px}
+.explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.explain{background:white;border:1px solid var(--line);border-radius:20px;padding:24px}
+.explain b{display:block;margin:0 0 8px;font-size:16px;color:var(--gdd)}
+.explain p{margin:0;color:var(--muted);font-size:13.5px}
+.cta{padding:56px 0;background:linear-gradient(135deg,#eef7ec,#f7fbf4)}
+.cta-inner{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.cta h2{font-size:30px;color:var(--gdd);margin:0 0 8px}.cta p{color:var(--muted);margin:0}
+footer{background:#203d2b;color:#dae6dd;padding:34px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-inner small{opacity:.75}
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .result-sticky{position:static}
+  .explain-grid{grid-template-columns:1fr}
+  .cta-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .nav{height:68px}.brand img{width:96px;height:48px}
+  .hero{padding:44px 0 40px}h1{font-size:32px}.hero p{font-size:14.5px}
+  .section{padding:44px 0}
+  .field-row{grid-template-columns:1fr}
+  .card{padding:22px}
+}
+</style></head><body>
+
+<header><div class="container nav">
+  <a class="brand" href="index.html"><img src="images/logo.webp" width="900" height="900" alt="ラクシテ"></a>
+  <button class="hamb" onclick="openMenu()" aria-label="メニューを開く"><span class="hamb-lines"></span></button>
+</div></header>
+<div class="drawer" id="drawer">
+  <div class="shade" onclick="closeMenu()"></div>
+  <aside class="panel">
+    <div class="drawer-top"><img src="images/logo.webp" width="900" height="900" loading="lazy" alt="ラクシテ"><button class="close" onclick="closeMenu()">×</button></div>
+    <div class="menu-label">SERVICE MENU</div>
+    <a class="menu-link" href="bookkeeping.html"><span>記帳代行<small>面倒な経理を、もっとラクに。</small></span><b>›</b></a>
+    <a class="menu-link" href="development.html"><span>アプリ・ソフト開発<small>アイデアを、使える仕組みに。</small></span><b>›</b></a>
+    <a class="menu-link" href="tax-simulator.html"><span>税金・保険料シミュレーター<small>売上からかんたん試算</small></span><b>›</b></a>
+    <div class="menu-label">COMPANY</div>
+    <a class="menu-link" href="index.html#about"><span>ラクシテについて</span><b>›</b></a>
+    <a class="menu-link" href="index.html#contact-info"><span>お問い合わせ</span><b>›</b></a>
+  </aside>
+</div>
+
+<main>
+<section class="hero"><div class="container">
+  <div class="eyebrow">TAX SIMULATOR</div>
+  <h1>税金・社会保険料の<br><span>かんたん試算</span></h1>
+  <p>年間の売上と経費を入力するだけで、個人事業主・フリーランスの方の所得税・住民税・国民健康保険・国民年金・個人事業税の目安をまとめて試算できます。</p>
+  <div class="badge-note">⚠ この試算はあくまで目安です。正確な金額は下部の注意事項をご確認ください。</div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="calc-wrap">
+    <div class="card">
+      <div class="field">
+        <label for="revenue">年間の売上（収入）</label>
+        <input type="number" id="revenue" inputmode="numeric" placeholder="例：4000000" value="4000000">
+        <div class="hint">1年間の売上合計を円で入力してください。</div>
+      </div>
+      <div class="field">
+        <label for="expense">年間の必要経費</label>
+        <input type="number" id="expense" inputmode="numeric" placeholder="例：800000" value="800000">
+        <div class="hint">仕入・通信費・家賃按分など、事業のための支出の合計です。</div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="blue">青色申告特別控除</label>
+          <select id="blue">
+            <option value="0">適用なし（白色申告など）</option>
+            <option value="100000">10万円</option>
+            <option value="550000">55万円</option>
+            <option value="650000" selected>65万円（電子申告など要件あり）</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dependents">扶養家族の人数</label>
+          <input type="number" id="dependents" inputmode="numeric" min="0" value="0">
+          <div class="hint">配偶者・お子さまなど（簡易計算：1人につき38万円控除）。</div>
+        </div>
+      </div>
+      <label class="chk"><input type="checkbox" id="age4064"><span>40歳以上65歳未満（国民健康保険に介護分が加わります）</span></label>
+      <label class="chk"><input type="checkbox" id="biztax"><span>個人事業税の対象業種にあたる（判定が難しい場合はチェックを外したままでOK。記帳代行業・ソフトウェア開発業は業種の実態により判定が分かれます）</span></label>
+
+      <details class="adv">
+        <summary>詳細設定（お住まいの自治体によって変わる項目）</summary>
+        <div class="field-row">
+          <div class="field">
+            <label for="kokuhoRate">国民健康保険 所得割の概算料率（%）</label>
+            <input type="number" id="kokuhoRate" step="0.1" value="10">
+            <div class="hint">自治体により約8〜12%程度で幅があります。</div>
+          </div>
+          <div class="field">
+            <label for="kokuhoFlat">国民健康保険 均等割・平等割の概算額（円/年）</label>
+            <input type="number" id="kokuhoFlat" step="1000" value="50000">
+            <div class="hint">世帯人数・自治体で変わります（目安）。</div>
+          </div>
+        </div>
+      </details>
+
+      <button class="btn btn-primary" style="width:100%;margin-top:6px" onclick="calc()">試算する</button>
+    </div>
+
+    <div class="result-sticky">
+      <div class="result-total">
+        <div class="eyebrow">合計（年間の目安）</div>
+        <div class="num" id="rTotal">¥0</div>
+        <div class="sub">所得税・住民税・国民健康保険・国民年金・個人事業税の合計</div>
+        <div class="takehome"><div class="sub">試算後の手取り目安（年間）</div><div class="num" id="rTakehome">¥0</div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <ul class="result-list">
+          <li class="label"><span>事業所得（売上−経費−青色控除）<small>各種控除を差し引く前の金額</small></span><b id="rIncome">¥0</b></li>
+          <li class="label"><span>所得税<small>復興特別所得税を含む</small></span><b id="rIncomeTax">¥0</b></li>
+          <li class="label"><span>住民税<small>所得割＋均等割の概算</small></span><b id="rResidentTax">¥0</b></li>
+          <li class="label"><span>国民健康保険料<small>概算・上限あり</small></span><b id="rKokuho">¥0</b></li>
+          <li class="label"><span>国民年金保険料<small>年額（令和8年度・本人分）</small></span><b id="rPension">¥0</b></li>
+          <li class="label"><span>個人事業税<small>事業所得290万円超の部分に課税</small></span><b id="rBizTax">¥0</b></li>
+        </ul>
+      </div>
+      <div class="note-box">この結果は簡易的な概算です。実際の税額・保険料額は、控除の適用状況やお住まいの自治体によって変わります。正確な金額を知りたい方はラクシテまでご相談ください。</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section soft"><div class="container">
+  <div class="section-head"><div class="eyebrow">GUIDE</div><h2>試算に含まれる税金・保険料について</h2><p>それぞれ何のための支払いか、かんたんに解説します。</p></div>
+  <div class="explain-grid">
+    <div class="explain"><b>所得税</b><p>国に納める税金。売上から経費・各種控除を差し引いた課税所得に、5〜45%の累進税率をかけて計算します。復興特別所得税（2.1%）も含めて試算しています。</p></div>
+    <div class="explain"><b>住民税</b><p>都道府県・市区町村に納める税金。所得に応じた「所得割」（税率約10%）と、定額の「均等割」で構成されます。</p></div>
+    <div class="explain"><b>国民健康保険料</b><p>会社員の健康保険にあたるもので、個人事業主は自分で市区町村の国民健康保険に加入します。保険料率は自治体ごとに異なります。</p></div>
+    <div class="explain"><b>国民年金保険料</b><p>会社員の厚生年金にあたるもの。原則として全員一律の月額（令和8年度は月17,920円）です。</p></div>
+    <div class="explain"><b>個人事業税</b><p>都道府県に納める税金で、法律で定められた業種のみが対象です。事業所得290万円を超えた部分に、業種ごとに定められた税率（多くは5%）がかかります。</p></div>
+    <div class="explain"><b>青色申告特別控除</b><p>複式簿記での記帳や電子申告などの要件を満たすと、最大65万円を所得から差し引ける制度です。記帳の正確さが節税にも直結します。</p></div>
+  </div>
+</div></section>
+
+<section class="cta">
+  <div class="container cta-inner">
+    <div><h2>正確な数字が知りたい方へ</h2><p>試算だけでなく、日々の記帳から確定申告までまとめてサポートします。</p></div>
+    <a class="btn btn-primary" href="tel:08063826844">電話で相談する</a>
+  </div>
+</section>
+
+</main>
+<footer><div class="container footer-inner">
+  <div><strong>ラクシテ</strong><br><small>軽やかに、つながる安心を。</small></div>
+  <small><a href="tokushoho.html" style="color:inherit;text-decoration:underline">特定商取引法に基づく表示</a>　© 2026 RAKUSHITE. All Rights Reserved.</small>
+</div></footer>
+
+<script>
+function openMenu(){document.getElementById('drawer').classList.add('open');document.body.style.overflow='hidden'}
+function closeMenu(){document.getElementById('drawer').classList.remove('open');document.body.style.overflow=''}
+
+function yen(n){ n = Math.round(n); return '¥' + n.toLocaleString('ja-JP'); }
+function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+
+function basicDeductionIncomeTax(income){
+  if(income<=1320000) return 950000;
+  if(income<=3360000) return 880000;
+  if(income<=4890000) return 680000;
+  if(income<=6550000) return 630000;
+  if(income<=23500000) return 580000;
+  if(income<=24000000) return 480000;
+  if(income<=24500000) return 320000;
+  if(income<=25000000) return 160000;
+  return 0;
+}
+function basicDeductionResidentTax(income){
+  if(income<=24000000) return 430000;
+  if(income<=24500000) return 290000;
+  if(income<=25000000) return 150000;
+  return 0;
+}
+function incomeTaxBracket(x){
+  if(x<=0) return 0;
+  if(x<=1949000) return x*0.05;
+  if(x<=3299000) return x*0.10-97500;
+  if(x<=6949000) return x*0.20-427500;
+  if(x<=8999000) return x*0.23-636000;
+  if(x<=17999000) return x*0.33-1536000;
+  if(x<=39999000) return x*0.40-2796000;
+  return x*0.45-4796000;
+}
+function floorTo1000(x){ return Math.floor(Math.max(0,x)/1000)*1000; }
+
+function calc(){
+  var revenue = num('revenue');
+  var expense = num('expense');
+  var blue = num('blue');
+  var dependents = num('dependents');
+  var age4064 = document.getElementById('age4064').checked;
+  var bizApplicable = document.getElementById('biztax').checked;
+  var kokuhoRate = num('kokuhoRate')/100;
+  var kokuhoFlat = num('kokuhoFlat');
+
+  var income = Math.max(0, revenue - expense - blue); // 事業所得（合計所得金額）
+  var pensionAnnual = 17920*12;
+
+  var kokuhoBase = Math.max(0, income - 430000);
+  var kokuhoBeforeCap = kokuhoBase*kokuhoRate + (age4064 ? kokuhoBase*0.02 : 0) + kokuhoFlat;
+  var kokuhoCap = age4064 ? 1060000 : 890000;
+  var kokuho = Math.min(kokuhoBeforeCap, kokuhoCap);
+
+  var socialDeduction = pensionAnnual + kokuho;
+  var dependentIncomeTax = dependents*380000;
+  var dependentResidentTax = dependents*330000;
+
+  var taxableIncome = floorTo1000(income - basicDeductionIncomeTax(income) - dependentIncomeTax - socialDeduction);
+  var taxableResident = floorTo1000(income - basicDeductionResidentTax(income) - dependentResidentTax - socialDeduction);
+
+  var incomeTax = Math.max(0, incomeTaxBracket(taxableIncome));
+  var reconstructionTax = incomeTax*0.021;
+  var incomeTaxTotal = incomeTax + reconstructionTax;
+
+  var residentTax = Math.max(0, taxableResident*0.10) + 5000;
+
+  var bizTax = 0;
+  if(bizApplicable){
+    var bizBase = Math.max(0, (revenue-expense) - 2900000);
+    bizTax = bizBase*0.05;
+  }
+
+  var total = incomeTaxTotal + residentTax + kokuho + pensionAnnual + bizTax;
+  var takehome = revenue - expense - total;
+
+  document.getElementById('rTotal').textContent = yen(total);
+  document.getElementById('rTakehome').textContent = yen(takehome);
+  document.getElementById('rIncome').textContent = yen(income);
+  document.getElementById('rIncomeTax').textContent = yen(incomeTaxTotal);
+  document.getElementById('rResidentTax').textContent = yen(residentTax);
+  document.getElementById('rKokuho').textContent = yen(kokuho);
+  document.getElementById('rPension').textContent = yen(pensionAnnual);
+  document.getElementById('rBizTax').textContent = yen(bizTax);
+}
+calc();
+</script>
+</body></html>
